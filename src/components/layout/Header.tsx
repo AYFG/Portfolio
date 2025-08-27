@@ -24,12 +24,12 @@ export default function Header() {
           >
             프로젝트
           </a>
-          <a
+          {/* <a
             href="#blog"
             className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
           >
             블로그
-          </a>
+          </a> */}
           <a
             href="/resume.pdf"
             className="bg-[#00ab6c] text-white px-5 py-2 rounded-full text-sm font-medium hover:opacity-85 transition-opacity"

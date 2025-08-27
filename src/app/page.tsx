@@ -1,13 +1,12 @@
 "use client";
 
-import BlogDetail from "@/app/blog/BlogDetail";
-import BlogList from "@/app/blog/page";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import ProjectList from "@/components/ProjectList";
+import BlogDetail from "@/app/(blog)/BlogDetail";
+import BlogList from "@/app/(blog)/page";
+import Hero from "@/components/layout/Hero";
+import ProjectList from "@/app/(project)/ProjectList";
 import { BlogPost } from "@/types/blog";
 import React, { useState, useEffect } from "react";
+import About from "@/components/About";
 export default function Home() {
   const [currentView, setCurrentView] = useState("home");
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
@@ -24,21 +23,18 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
-      <Header />
-      <main className="flex-grow">
-        {currentView === "home" && (
-          <>
-            <Hero />
-            <ProjectList />
-            <BlogList onSelectPost={handleSelectPost} />
-          </>
-        )}
-        {currentView === "blogDetail" && selectedPost && (
-          <BlogDetail post={selectedPost} onBack={handleBackToList} />
-        )}
-      </main>
-      <Footer />
-    </div>
+    <>
+      {currentView === "home" && (
+        <>
+          <Hero />
+
+          <ProjectList />
+          {/* <BlogList onSelectPost={handleSelectPost} /> */}
+        </>
+      )}
+      {currentView === "blogDetail" && selectedPost && (
+        <BlogDetail post={selectedPost} onBack={handleBackToList} />
+      )}
+    </>
   );
 }

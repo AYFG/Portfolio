@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import BlogPostItem from "./BlogPostItem";
 import blogPostsData from "@/data/blogPostsData";

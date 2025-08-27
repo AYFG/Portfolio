@@ -6,8 +6,8 @@ export default function Hero() {
     <section
       className="relative py-24 md:py-32 lg:py-40 px-6 overflow-hidden"
       style={{
-        backgroundImage: `url(${heroBackground.src})`,
-
+        // backgroundImage: `url(${heroBackground.src})`,
+        backgroundColor: "#f9fafb",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",

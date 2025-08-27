@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ProjectCard from "./ProjectCard";
-import ProjectModal from "./modal/ProjectModal";
+import ProjectModal from "@/app/(project)/(modal)/ProjectModal";
 import projectsData from "@/data/projectsData";
 import { ProjectPost } from "@/types/project";
 
