@@ -8,4 +8,5 @@ export interface ProjectPost {
   thumbnail: StaticImageData;
   techStack: string[];
   githubUrl: string;
+  image?: { imgUrl: string; subject: string }[];
 }

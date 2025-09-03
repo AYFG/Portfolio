@@ -1,6 +1,6 @@
 import { ProjectPost } from "@/types/project";
 import Image from "next/image";
-import { useEffect } from "react";
+import ProjectImageGallery from "../ProjectImageGallery";
 
 interface ProjectModalProps {
   project: ProjectPost | null;
@@ -32,11 +32,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         <Image
           src={project.thumbnail}
           alt={`${project.title} 썸네일`}
-          width={600}
-          height={400}
+          width={0}
+          height={0}
+          sizes="100vw"
           className="w-full h-auto rounded-md mb-6"
         />
-        <h2 id="modal-title" className="text-3xl font-bold mb-2 text-gray-900">
+        <h2 id="modal-title" className="text-3xl font-bold mb-3 text-gray-900">
           {project.title}
         </h2>
         <div className="flex flex-wrap gap-2 mb-6">
@@ -49,7 +50,11 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             </span>
           ))}
         </div>
-        <p className="text-gray-600 leading-relaxed mb-8">{project.longDescription}</p>
+        <p
+          className="text-gray-600 leading-relaxed mb-8"
+          dangerouslySetInnerHTML={{ __html: project.longDescription }}
+        />
+        {project.image && <ProjectImageGallery title={project.title} images={project.image} />}
         <a
           href={project.githubUrl}
           className="inline-block bg-[#00ab6c] text-white px-6 py-2 rounded-full text-base font-medium hover:opacity-85 transition-opacity"
