@@ -1,6 +1,4 @@
-import { catLogImages, pypImages } from "./projectImage";
-
-import moamoaThumbnail from "@/../public/moamoa/thumbnail.png";
+import { catLogImages, pypImages, moamoaImages } from "./projectImage";
 
 const githubAYFG = "https://github.com/AYFG";
 
@@ -24,27 +22,27 @@ export const projectsData = [
     ],
     image: [
       {
-        imgUrl: pypImages.detail[0],
+        imgUrl: catLogImages.detail.main,
         subject: "메인 페이지",
       },
       {
-        imgUrl: catLogImages.detail[1],
+        imgUrl: catLogImages.detail.hunt,
         subject: "사냥 타이머",
       },
       {
-        imgUrl: catLogImages.detail[2],
+        imgUrl: catLogImages.detail.daily,
         subject: "일일 기록",
       },
       {
-        imgUrl: catLogImages.detail[3],
+        imgUrl: catLogImages.detail.dailyForm,
         subject: "일일 기록 양식",
       },
       {
-        imgUrl: catLogImages.detail[4],
+        imgUrl: catLogImages.detail.mypage,
         subject: "마이 페이지",
       },
       {
-        imgUrl: catLogImages.detail[5],
+        imgUrl: catLogImages.detail.medicalForm,
         subject: "건강 기록 양식",
       },
     ],
@@ -61,63 +59,63 @@ export const projectsData = [
     techStack: ["Next.js", "TypeScript", "TailwindCSS", "Zustand", "Tanstack Query"],
     image: [
       {
-        imgUrl: pypImages.detail[0],
+        imgUrl: pypImages.detail.testStart,
         subject: "랜딩 페이지",
       },
       {
-        imgUrl: pypImages.detail[1],
+        imgUrl: pypImages.detail.testResult,
         subject: "테스트 결과 전통주 추천",
       },
       {
-        imgUrl: pypImages.detail[2],
+        imgUrl: pypImages.detail.productDetail,
         subject: "전통주 상세",
       },
       {
-        imgUrl: pypImages.detail[3],
+        imgUrl: pypImages.detail.login,
         subject: "로그인",
       },
       {
-        imgUrl: pypImages.detail[4],
+        imgUrl: pypImages.detail.discordLogin,
         subject: "디스코드 로그인",
       },
       {
-        imgUrl: pypImages.detail[5],
+        imgUrl: pypImages.detail.adultAuth,
         subject: "성인 인증",
       },
       {
-        imgUrl: pypImages.detail[6],
+        imgUrl: pypImages.detail.productPurchase,
         subject: "구매 페이지",
       },
       {
-        imgUrl: pypImages.detail[7],
+        imgUrl: pypImages.detail.chooseKakaoPay,
         subject: "카카오페이 선택",
       },
       {
-        imgUrl: pypImages.detail[8],
+        imgUrl: pypImages.detail.choicePayment,
         subject: "결제 방법 선택",
       },
       {
-        imgUrl: pypImages.detail[9],
+        imgUrl: pypImages.detail.KakaoPaymentTest,
         subject: "카카오 페이 결제",
       },
       {
-        imgUrl: pypImages.detail[10],
+        imgUrl: pypImages.detail.successKakaoPay,
         subject: "결제 진행",
       },
       {
-        imgUrl: pypImages.detail[11],
+        imgUrl: pypImages.detail.successPayment,
         subject: "결제 완료",
       },
       {
-        imgUrl: pypImages.detail[12],
+        imgUrl: pypImages.detail.order,
         subject: "주문 내역",
       },
       {
-        imgUrl: pypImages.detail[13],
+        imgUrl: pypImages.detail.main,
         subject: "메인 페이지",
       },
       {
-        imgUrl: pypImages.detail[14],
+        imgUrl: pypImages.detail.productCategory,
         subject: "전통주 카테고리",
       },
     ],
@@ -129,8 +127,8 @@ export const projectsData = [
     description:
       "축제와 체험을 사람들끼리 공유하고 찾아볼 수 있도록 기획한 어플입니다. 일반 회원은 경험 공유를, 기업 회원은 축제,체험의 등록, 홍보를 할 수 있도록 따로 구현하였습니다.",
     longDescription:
-      '축제 관련 SNS 프로젝트의 시연 영상입니다. <a href="https://www.youtube.com/watch?v=0r-J16cTubE" target="_blank" rel="noopener">여기</a>',
-    thumbnail: moamoaThumbnail,
+      '축제 관련 SNS 프로젝트의 시연 영상입니다. <a href="https.youtube.com/watch?v=0r-J16cTubE" target="_blank" rel="noopener">여기</a>',
+    thumbnail: moamoaImages.thumbnail,
     techStack: ["React", "JavaScript", "Recoil", "Styled-Component"],
     githubUrl: `${githubAYFG}/final-18-moamoa`,
   },

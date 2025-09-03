@@ -5,7 +5,7 @@ export interface ProjectPost {
   title: string;
   description: string;
   longDescription: string;
-  thumbnail: StaticImageData;
+  thumbnail: string;
   techStack: string[];
   githubUrl: string;
   image?: { imgUrl: string; subject: string }[];
