@@ -32,11 +32,11 @@ export const pypImages = {
 export const moamoaImages = {
   thumbnail: "/moamoa/thumbnail.png",
   detail: {
+    login: "/moamoa/login.png",
     main: "/moamoa/main.png",
-    hunt: "/moamoa/hunt.png",
-    daily: "/moamoa/daily.png",
-    dailyForm: "/moamoa/dailyForm.png",
+    postDetail: "/moamoa/postDetail.png",
     mypage: "/moamoa/mypage.png",
-    medicalForm: "/moamoa/medicalForm.png",
+    festival: "/moamoa/festival.png",
+    festivalDetail: "/moamoa/festivalDetail.png",
   },
 };
