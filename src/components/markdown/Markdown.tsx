@@ -1,8 +1,13 @@
 import { ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
-const Markdown = ({ children }: { children: ReactNode }) => {
-  return <ReactMarkdown>{String(children)}</ReactMarkdown>;
+const Markdown = ({ children }: { children: string }) => {
+  return (
+    <div className="prose">
+      <ReactMarkdown remarkPlugins={[remarkGfm]}>{children}</ReactMarkdown>
+    </div>
+  );
 };
 
 export default Markdown;

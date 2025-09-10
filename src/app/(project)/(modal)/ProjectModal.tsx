@@ -38,13 +38,13 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           sizes="100vw"
           className="w-full h-auto rounded-md mb-6"
         />
-        <h2 id="modal-title" className="text-3xl font-bold mb-3 text-gray-900">
+
+        <h2 id="modal-title" className="text-3xl font-bold text-gray-900 mb-2">
           {project.title}
         </h2>
-        <div>
-          <span className="text-sm text-gray-500 mb-4 inline-block">{project.date}</span>
-        </div>
-        <div className="flex flex-wrap gap-2 mb-6">
+        <p className="text-md text-gray-500 mb-3">{project.date}</p>
+
+        <div className="flex flex-wrap gap-2 mb-5">
           {project.techStack.map((tag) => (
             <span
               key={tag}
@@ -54,35 +54,30 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             </span>
           ))}
         </div>
-        <p className="text-gray-600 leading-relaxed mb-8">{project.longDescription}</p>
+        <Markdown>{project.longDescription}</Markdown>
         <div className="space-y-8 mt-8">
           <section>
-            <h3 className="text-xl font-bold mb-4 pb-2 border-b ">주요 기능 및 특징</h3>
-            <div className=" leading-relaxed space-y-4 ">
-              {project.mainFeatures?.map((feature, idx) => (
-                <div key={idx}>
-                  <h4 className="font-semibold block mb-2 pl-2 bg-gray-200">{feature.title}</h4>
-                  <div className="prose prose-sm max-w-none">
-                    <Markdown>{feature.detail}</Markdown>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <h3 className="text-xl font-bold mb-4 pb-2 border-b ">⚙️ 주요 기능 및 특징</h3>
+            {project.mainFeatures?.map((feature, idx) => (
+              <div key={idx}>
+                <h4 className="font-medium text-md block my-2 p-3 bg-[#efeff1]">{feature.title}</h4>
+                <Markdown>{feature.detail}</Markdown>
+              </div>
+            ))}
           </section>
           <section aria-labelledby="project-troubleShooting">
             <h3 id="project-troubleShooting" className="text-xl font-bold mb-4 pb-2 border-b">
-              문제 해결
+              🔍 문제 해결
             </h3>
-            <div className="leading-relaxed space-y-4">
-              {project.troubleShooting?.map((item, idx) => (
-                <div key={idx}>
-                  <h4 className="font-semibold block mb-2">{item.title}</h4>
-                  <div className="prose prose-sm max-w-none">
-                    <Markdown>{item.detail}</Markdown>
-                  </div>
+
+            {project.troubleShooting?.map((item, idx) => (
+              <div key={idx}>
+                <h4 className="font-medium text-md block my-2 p-3 bg-[#efeff1]">{item.title}</h4>
+                <div className="prose prose-sm max-w-none">
+                  <Markdown>{item.detail}</Markdown>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </section>
         </div>
         {project.image && <ProjectImageGallery title={project.title} images={project.image} />}

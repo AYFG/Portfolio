@@ -9,20 +9,36 @@ export const projectsData = [
     date: "2025.03 ~ 2025.09",
     description:
       "반려묘의 다음 건강검진은 언제 가야하는지, 심장사상충 약은 언제 투여해야하는지 등 건강관리를 위한 관리 도구가 필요하여 개발하였습니다.",
-    longDescription:
-      "프로젝트 1에 대한 더 상세한 설명입니다. 직면했던 과제, 구현된 솔루션, 그리고 프로젝트의 전반적인 영향 등을 포함할 수 있습니다. 성능과 확장성에 중점을 두고 구축되었습니다.",
+    longDescription: `반려묘의 다음 건강검진은 언제 가야하는지, 심장사상충 약은 언제 투여해야하는지 등 건강관리를 위한 관리 도구가 필요하여 개발하였습니다.`,
     mainFeatures: [
       {
-        title: "Lorem",
-        detail:
-          "Lore Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages",
+        title: "프로젝트 기획 및 디자인 구성",
+        detail: `
+- 이것은 첫 번째 주요 기능입니다.
+- 이것은 두 번째 주요 기능에 대한 설명입니다.
+
+이 기능들은 Lazy 의 편의성을 극대화하기 위해 설계되었습니다.
+`,
+      },
+      {
+        title: "프로젝트 기획 및 디자인 구성 2",
+        detail: `
+- 이것은 첫 번째 주요 기능입니다.
+- 이것은 두 번째 주요 기능에 대한 설명입니다.
+
+이 기능들은 crazy 의 편의성을 극대화하기 위해 설계되었습니다.
+`,
       },
     ],
     troubleShooting: [
       {
-        title: "Lorem",
-        detail:
-          "### 주요 기능\n\n* **기능 1:** 이것은 첫 번째 주요 기능입니다.\n* **기능 2:** 이것은 두 번째 주요 기능에 대한 설명입니다.\n\n이 기능들은 \`Lazy`\, 의 편의성을 극대화하기 위해 설계되었습니다.",
+        title: "이것으로 인한 오류",
+        detail: `
+- 이것은 첫 번째 주요 오류입니다.
+- 이것은 두 번째 주요 오류에 대한 설명입니다.
+
+이 오류들은 crazy 의 편의성을 극대화하기 위해 설계되었습니다.
+`,
       },
     ],
     thumbnail: catLogImages.thumbnail,
