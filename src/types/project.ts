@@ -7,6 +7,7 @@ export interface ProjectPost {
   thumbnail: string;
   techStack: string[];
   githubUrl: string;
+  projectUrl?: string;
   mainFeatures?: { title: string; detail: string }[];
   troubleShooting?: { title: string; detail: string }[];
   image?: { imgUrl: string; subject: string }[];

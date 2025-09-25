@@ -2,6 +2,7 @@ import { ProjectPost } from "@/types/project";
 import Image from "next/image";
 import ProjectImageGallery from "../ProjectImageGallery";
 import Markdown from "@/components/markdown/Markdown";
+import { useState } from "react";
 
 interface ProjectModalProps {
   project: ProjectPost | null;
@@ -9,8 +10,16 @@ interface ProjectModalProps {
 }
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   if (!project) return null;
 
+  const handleImageClick = (imgUrl: string) => {
+    setSelectedImage(imgUrl);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedImage(null);
+  };
   return (
     <div
       className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4 transition-opacity duration-300"
@@ -30,13 +39,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         >
           &times;
         </button>
+
         <Image
           src={project.thumbnail}
           alt={`${project.title} 썸네일`}
           width={0}
           height={0}
           sizes="100vw"
-          className="w-full h-auto rounded-md mb-6"
+          className="w-full h-auto rounded-md mb-6 transition-transform duration-300 group-hover:scale-105"
         />
 
         <h2 id="modal-title" className="text-3xl font-bold text-gray-900 mb-2">
@@ -57,10 +67,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         <Markdown>{project.longDescription}</Markdown>
         <div className="space-y-8 mt-8">
           <section>
-            <h3 className="text-xl font-bold mb-4 pb-2 border-b ">⚙️ 주요 기능 및 특징</h3>
+            <h3 className="text-xl font-bold mb-4 pb-2 border-b ">⚙️ 구현 기능</h3>
             {project.mainFeatures?.map((feature, idx) => (
               <div key={idx}>
-                <h4 className="font-medium text-md block my-2 p-3 bg-[#efeff1]">{feature.title}</h4>
+                <h4 className="font-medium text-md block my-2 p-3 pl-4 bg-[#eebebe]">
+                  {feature.title}
+                </h4>
                 <Markdown>{feature.detail}</Markdown>
               </div>
             ))}
@@ -72,8 +84,10 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
             {project.troubleShooting?.map((item, idx) => (
               <div key={idx}>
-                <h4 className="font-medium text-md block my-2 p-3 bg-[#efeff1]">{item.title}</h4>
-                <div className="prose prose-sm max-w-none">
+                <h4 className="font-medium text-md block my-2 p-3 pl-4 bg-[#b6b6ff]">
+                  {item.title}
+                </h4>
+                <div className="prose prose-sm max-w-none ">
                   <Markdown>{item.detail}</Markdown>
                 </div>
               </div>
@@ -81,6 +95,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </section>
         </div>
         {project.image && <ProjectImageGallery title={project.title} images={project.image} />}
+        <a
+          href={project.projectUrl}
+          className="inline-block bg-[#00ab6c] text-white px-6 py-2 rounded-full text-base font-medium hover:opacity-85 transition-opacity mr-2"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          사이트 보기
+        </a>
         <a
           href={project.githubUrl}
           className="inline-block bg-[#00ab6c] text-white px-6 py-2 rounded-full text-base font-medium hover:opacity-85 transition-opacity"
@@ -90,6 +112,32 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           GitHub에서 보기
         </a>
       </div>
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-[60] p-4"
+          onClick={handleCloseModal}
+          role="dialog"
+          aria-modal="true"
+          aria-label="이미지 상세 보기"
+        >
+          <div className="relative" onClick={(e) => e.stopPropagation()}>
+            <Image
+              src={selectedImage}
+              alt="확대된 상세 이미지"
+              width={1200}
+              height={800}
+              className="max-w-full max-h-[90vh] object-contain rounded-lg"
+            />
+            <button
+              className="absolute -top-2 -right-2 m-4 text-white text-5xl font-bold"
+              onClick={handleCloseModal}
+              aria-label="이미지 뷰어 닫기"
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

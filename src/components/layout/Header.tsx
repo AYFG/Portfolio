@@ -6,7 +6,7 @@ export default function Header() {
       className="border-b border-gray-200 py-4 bg-white sticky top-0 z-50"
       aria-label="메인 네비게이션"
     >
-      <div className="container mx-auto px-6 max-w-4xl flex justify-between items-center">
+      <div className="container mx-auto px-6 max-w-5xl flex justify-between items-center">
         <Link
           href="/"
           className="flex items-center gap-2 font-bold text-xl text-gray-900 no-underline"
