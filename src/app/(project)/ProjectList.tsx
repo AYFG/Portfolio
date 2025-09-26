@@ -10,6 +10,10 @@ export default function ProjectList() {
   const handleSelectProject = (project: ProjectPost) => setSelectedProject(project);
   const handleCloseModal = () => setSelectedProject(null);
 
+  const currentProjectData = selectedProject
+    ? projectsData.find((p) => p.id === selectedProject.id) || null
+    : null;
+
   return (
     <section id="projects" className="py-20 sm:py-24 border-b border-gray-200">
       <div className="container mx-auto px-6 max-w-4xl">
@@ -20,7 +24,7 @@ export default function ProjectList() {
           ))}
         </div>
       </div>
-      <ProjectModal project={selectedProject} onClose={handleCloseModal} />
+      <ProjectModal project={currentProjectData} onClose={handleCloseModal} />
     </section>
   );
 }
