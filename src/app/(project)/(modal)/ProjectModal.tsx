@@ -95,14 +95,16 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </section>
         </div>
         {project.image && <ProjectImageGallery title={project.title} images={project.image} />}
-        <a
-          href={project.projectUrl}
-          className="inline-block bg-[#00ab6c] text-white px-6 py-2 rounded-full text-base font-medium hover:opacity-85 transition-opacity mr-2"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          사이트 보기
-        </a>
+        {project.projectUrl && (
+          <a
+            href={project.projectUrl}
+            className="inline-block bg-[#00ab6c] text-white px-6 py-2 rounded-full text-base font-medium hover:opacity-85 transition-opacity mr-2"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            사이트 보기
+          </a>
+        )}
         <a
           href={project.githubUrl}
           className="inline-block bg-[#00ab6c] text-white px-6 py-2 rounded-full text-base font-medium hover:opacity-85 transition-opacity"
