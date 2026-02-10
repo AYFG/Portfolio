@@ -7,7 +7,7 @@ import CareerList from "@/app/(career)/CareerList";
 import ProjectList from "@/app/(project)/ProjectList";
 import { BlogPost } from "@/types/blog";
 import React, { useState, useEffect } from "react";
-import About from "@/components/About";
+
 export default function Home() {
   const [currentView, setCurrentView] = useState("home");
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
