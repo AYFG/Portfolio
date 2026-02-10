@@ -18,7 +18,7 @@ export default function Footer() {
           <p className="text-base">sek82468246@gmail.com</p>
         </a>
       </div>
-      <p className="text-sm text-gray-500">© 2025 Song Jae Woong. All rights reserved.</p>
+      <p className="text-sm text-gray-500">© {new Date().getFullYear()} Song Jae Woong. All rights reserved.</p>
     </footer>
   );
 }

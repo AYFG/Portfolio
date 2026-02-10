@@ -3,6 +3,7 @@
 import BlogDetail from "@/app/(blog)/BlogDetail";
 import BlogList from "@/app/(blog)/page";
 import Hero from "@/components/layout/Hero";
+import CareerList from "@/app/(career)/CareerList";
 import ProjectList from "@/app/(project)/ProjectList";
 import { BlogPost } from "@/types/blog";
 import React, { useState, useEffect } from "react";
@@ -28,6 +29,7 @@ export default function Home() {
         <>
           <Hero />
 
+          <CareerList />
           <ProjectList />
           {/* <BlogList onSelectPost={handleSelectPost} /> */}
         </>

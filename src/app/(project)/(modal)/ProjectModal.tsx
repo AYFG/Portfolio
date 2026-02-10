@@ -7,9 +7,10 @@ import { useState } from "react";
 interface ProjectModalProps {
   project: ProjectPost | null;
   onClose: () => void;
+  showImage?: boolean;
 }
 
-export default function ProjectModal({ project, onClose }: ProjectModalProps) {
+export default function ProjectModal({ project, onClose, showImage = true }: ProjectModalProps) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   if (!project) return null;
 
@@ -40,14 +41,16 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           &times;
         </button>
 
-        <Image
-          src={project.thumbnail}
-          alt={`${project.title} 썸네일`}
-          width={0}
-          height={0}
-          sizes="100vw"
-          className="w-full h-auto rounded-md mb-6 transition-transform duration-300 group-hover:scale-105"
-        />
+        {showImage && (
+          <Image
+            src={project.thumbnail}
+            alt={`${project.title} 썸네일`}
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-full h-auto rounded-md mb-6 transition-transform duration-300 group-hover:scale-105"
+          />
+        )}
 
         <h2 id="modal-title" className="text-3xl font-bold text-gray-900 mb-2">
           {project.title}
@@ -94,8 +97,10 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             ))}
           </section>
         </div>
-        {project.image && <ProjectImageGallery title={project.title} images={project.image} />}
-        {project.projectUrl && (
+        {showImage && project.image && (
+          <ProjectImageGallery title={project.title} images={project.image} />
+        )}
+        {showImage && project.projectUrl && (
           <a
             href={project.projectUrl}
             className="inline-block bg-[#00ab6c] text-white px-6 py-2 rounded-full text-base font-medium hover:opacity-85 transition-opacity mr-2"
@@ -105,14 +110,16 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             사이트 보기
           </a>
         )}
-        <a
-          href={project.githubUrl}
-          className="inline-block bg-[#00ab6c] text-white px-6 py-2 rounded-full text-base font-medium hover:opacity-85 transition-opacity"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub에서 보기
-        </a>
+        {showImage && (
+          <a
+            href={project.githubUrl}
+            className="inline-block bg-[#00ab6c] text-white px-6 py-2 rounded-full text-base font-medium hover:opacity-85 transition-opacity"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub에서 보기
+          </a>
+        )}
       </div>
       {selectedImage && (
         <div
